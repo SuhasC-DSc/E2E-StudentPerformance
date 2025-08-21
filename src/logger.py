@@ -2,11 +2,12 @@ import logging
 import os
 from datetime import datetime
 
-LOG_FILE=f"{datetime.now().strftime('%d-%m-%Y_%H-%M-%S')}.log"
-LOG_PATH=os.path.join(os.getcwd(), "logs", LOG_FILE)
-os.makedirs(LOG_PATH, exist_ok=True)
+LOG_FILE_NAME = f"{datetime.now().strftime('%d-%m-%Y_%H-%M-%S')}.log"
+LOG_PATH = os.path.join(os.getcwd(), "logs")
+if not os.path.exists(LOG_PATH):
+    os.makedirs(LOG_PATH)
 
-LOG_FILE_PATH = os.path.join(LOG_PATH, LOG_FILE)
+LOG_FILE_PATH = os.path.join(LOG_PATH, LOG_FILE_NAME)
 
 logging.basicConfig(
     filename=LOG_FILE_PATH,
@@ -14,3 +15,5 @@ logging.basicConfig(
     level=logging.INFO,
     filemode='w'
 )
+
+logging.info("Logger initialized")
