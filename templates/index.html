@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ intro.name }} - Introduction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <nav class="p-3 bg-dark text-white">
+        <a href="/" class="text-white m-2">🏠 Introduction</a>
+        <a href="/home" class="text-white m-2">📊 Student Predictor</a>
+    </nav>
+
+    <div class="container text-center mt-5">
+        <div class="card shadow-lg p-4 rounded-3">
+            <h1 class="text-primary">{{ intro.name }}</h1>
+            <h3 class="text-secondary">{{ intro.title }}</h3>
+            <p class="mt-3">{{ intro.about }}</p>
+
+            <h4 class="mt-4">Skills</h4>
+            <ul class="list-inline">
+                {% for skill in intro.skills %}
+                    <li class="list-inline-item badge bg-info text-dark m-1">{{ skill }}</li>
+                {% endfor %}
+            </ul>
+
+            <h4 class="mt-4">Contact</h4>
+            <p>Email: <a href="mailto:{{ intro.contact.email }}">{{ intro.contact.email }}</a></p>
+            <p>
+                <a href="{{ intro.contact.linkedin }}" class="btn btn-outline-primary btn-sm m-1">LinkedIn</a>
+                <a href="{{ intro.contact.github }}" class="btn btn-outline-dark btn-sm m-1">GitHub</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
